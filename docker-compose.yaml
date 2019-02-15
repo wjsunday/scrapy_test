@@ -1,0 +1,12 @@
+version: '3'
+services:
+  scapy:
+    build: .
+    image: scapy:v1.2
+    container_name: ppx_mall_scapy
+    restart: "no"
+    volumes:
+      - .:/app
+      - /data/img/ppx_mall_scrapy/image/1:/app/au51gogoods/au51gogoods/image/1
+      - /data/img/ppx_mall_scrapy/image/1:/app/soukuangoods/soukuangoods/image/1
+      - /data/img/ppx_mall_scrapy/image/1:/app/shenrong/image/1
