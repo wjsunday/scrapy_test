@@ -36,8 +36,11 @@ class Connect_mysql(object):
         else:
             goods_jingle = ''
         goods_desc = item['introduction'].replace("'","\\'")
-        goods_marketprice = round(item['discountprice'] * 1.2,2)
-        rate = round(item['discountprice']/goods_marketprice,2)*10
+        item['discountprice'] = round(item['discountprice'] * 1.25 + 2)
+        goods_marketprice = item['discountprice'] * 2
+        rate = round(item['discountprice']/goods_marketprice,1)*10
+        if int(rate) == 10:
+            rate = 0
         goods_price = item['discountprice']
         shop_info = ''
         address = item['address']
@@ -64,7 +67,7 @@ class Connect_mysql(object):
                     goods_image = ret[2]
 
             #更新
-            sqlupdatecommon = "UPDATE mall_goods_common SET goods_name='%s',goods_image='%s',goods_price='%s',goods_jingle_other='%s',goods_body='%s',mobile_body='%s',goods_marketprice='%s',goods_costprice='%s',shop_info='%s',goods_image_old='%s', goods_serial='%s' WHERE goods_commonid = '%s'" % (goods_name,goods_image,goods_price,goods_jingle,goods_desc,goods_desc,goods_marketprice,goods_price,shop_info,self.img_url,goods_serial,ret[0])
+            sqlupdatecommon = "UPDATE mall_goods_common SET goods_name='%s',goods_image='%s',goods_price='%s',goods_jingle_other='%s',goods_body='%s',mobile_body='%s',goods_marketprice='%s',goods_costprice='%s',shop_info='%s',goods_image_old='%s',goods_serial='%s',transport_id='%s',transport_title='%s',is_support_voucher='%s' WHERE goods_commonid = '%s'" % (goods_name,goods_image,goods_price,goods_jingle,goods_desc,goods_desc,goods_marketprice,goods_price,shop_info,self.img_url,goods_serial,'11','拼拼侠通用运费模板','1',ret[0])
             self.cur.execute(sqlupdatecommon)
             #更新店铺信息
             if address != '':
@@ -74,7 +77,7 @@ class Connect_mysql(object):
             self.cur.execute(sqlgoods)
             results = self.cur.fetchall()
             for row in results:
-                sqlupdategoods = "UPDATE mall_goods SET goods_name='%s',goods_image='%s',goods_storage='%s',goods_price='%s',goods_jingle_other='%s',goods_edittime='%s',goods_tradeprice='%s',goods_promotion_price='%s',goods_marketprice='%s',goods_salenum='%s' WHERE goods_id=%s" % (goods_name,goods_image,100,goods_price,goods_jingle,now_time,goods_price,goods_price,goods_marketprice,goods_salenum,row[0])
+                sqlupdategoods = "UPDATE mall_goods SET goods_name='%s',goods_image='%s',goods_storage='%s',goods_price='%s',goods_jingle_other='%s',goods_edittime='%s',goods_tradeprice='%s',goods_promotion_price='%s',goods_marketprice='%s',goods_salenum='%s',transport_id='%s' WHERE goods_id=%s" % (goods_name,goods_image,100,goods_price,goods_jingle,now_time,goods_price,goods_price,goods_marketprice,goods_salenum,'11',row[0])
                 self.cur.execute(sqlupdategoods)
                 common_key = str(ret[0])
                 goods_key = str(row[0])
@@ -92,9 +95,9 @@ class Connect_mysql(object):
             goods_image = self.down_img()
             #mall_goods_common
             sqlcommon = 'insert into mall_goods_common' \
-                        '(goods_name,goods_image,goods_price,goods_jingle,mobile_body,gc_id,gc_id_1,gc_id_2,gc_id_3,gc_name,store_id,store_name,spec_name,spec_value,brand_id,brand_name,goods_attr,goods_body,goods_state,goods_verify,goods_addtime,goods_selltime,goods_specname,goods_marketprice,goods_costprice,goods_discount,goods_serial,goods_storage_alarm,areaid_1,areaid_2,appoint_satedate,presell_deliverdate,goods_url,goods_jingle_other,shop_info,goods_image_old) ' \
-                        'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-            liscommon = (goods_name,goods_image,goods_price,goods_jingle,goods_desc,'131','131','0','0','滋补','1','拼拼侠','N;','N;','7','参茸滋补','N;',goods_desc,'1','1',now_time,now_time,'N;',goods_marketprice,goods_price,'100',goods_serial,'1','1','1',now_time,now_time,goods_url,goods_jingle,shop_info,self.img_url)
+                        '(goods_name,goods_image,goods_price,goods_jingle,mobile_body,gc_id,gc_id_1,gc_id_2,gc_id_3,gc_name,store_id,store_name,spec_name,spec_value,brand_id,brand_name,goods_attr,goods_body,goods_state,goods_verify,goods_addtime,goods_selltime,goods_specname,goods_marketprice,goods_costprice,goods_discount,goods_serial,goods_storage_alarm,areaid_1,areaid_2,appoint_satedate,presell_deliverdate,goods_url,goods_jingle_other,shop_info,goods_image_old,transport_id,transport_title,is_support_voucher) ' \
+                        'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+            liscommon = (goods_name,goods_image,goods_price,goods_jingle,goods_desc,'131','131','0','0','滋补','1','拼拼侠','N;','N;','7','参茸滋补','N;',goods_desc,'1','1',now_time,now_time,'N;',goods_marketprice,goods_price,'100',goods_serial,'1','1','1',now_time,now_time,goods_url,goods_jingle,shop_info,self.img_url,'11','拼拼侠通用运费模板','1')
             self.cur.execute(sqlcommon,liscommon)
             common_id = int(self.client.insert_id())
             if common_id:
@@ -112,9 +115,9 @@ class Connect_mysql(object):
                             self.cur.execute(mgi_insert,lismgi)
 
                 #mall_goods
-                sqlgoods = 'insert into mall_goods(goods_commonid,goods_name,goods_jingle,store_id,store_name,gc_id,gc_id_1,gc_id_2,gc_id_3,brand_id,goods_price,goods_tradeprice,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_serial,goods_storage_alarm,goods_click,goods_salenum,goods_collect,goods_spec,goods_storage,goods_image,goods_state,goods_verify,goods_addtime,goods_edittime,areaid_1,areaid_2,color_id,transport_id,goods_freight,goods_vat,goods_commend,goods_stcids,evaluation_good_star,evaluation_count,is_virtual,virtual_indate,virtual_limit,virtual_invalid_refund,is_fcode,is_appoint,is_presell,have_gift,is_own_shop,distribution_price_1,distribution_price_2,distribution_price_3,commission_percent,goods_jingle_other,goods_weight)' \
+                sqlgoods = 'insert into mall_goods(goods_commonid,goods_name,goods_jingle,store_id,store_name,gc_id,gc_id_1,gc_id_2,gc_id_3,brand_id,goods_price,goods_tradeprice,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_serial,goods_storage_alarm,goods_click,goods_salenum,goods_collect,goods_spec,goods_storage,goods_image,goods_state,goods_verify,goods_addtime,goods_edittime,areaid_1,areaid_2,color_id,goods_freight,goods_vat,goods_commend,goods_stcids,evaluation_good_star,evaluation_count,is_virtual,virtual_indate,virtual_limit,virtual_invalid_refund,is_fcode,is_appoint,is_presell,have_gift,is_own_shop,distribution_price_1,distribution_price_2,distribution_price_3,commission_percent,goods_jingle_other,goods_weight,transport_id)' \
                             'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-                lisgoods = (common_id,goods_name,goods_jingle,'1','拼拼侠','131','131','0','0','7',goods_price,goods_price,goods_price,'0',goods_marketprice,goods_serial,'1','1',goods_salenum,'1','N;',100,goods_image,'1','1',now_time,now_time,'1','1','0','0','0','0','0','1','5','0','0','0','0','0','0','0','0','0','0','0','0','0','0',goods_jingle,goods_weight)
+                lisgoods = (common_id,goods_name,goods_jingle,'1','拼拼侠','131','131','0','0','7',goods_price,goods_price,goods_price,'0',goods_marketprice,goods_serial,'1','1',goods_salenum,'1','N;',100,goods_image,'1','1',now_time,now_time,'1','1','0','0','0','0','1','5','0','0','0','0','0','0','0','0','0','0','0','0','0','0',goods_jingle,goods_weight,'11')
                 self.cur.execute(sqlgoods,lisgoods)
                 self.client.commit()
 

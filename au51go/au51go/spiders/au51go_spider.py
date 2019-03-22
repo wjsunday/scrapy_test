@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from au51go.items import Au51GoItem
+from scrapy.xlib.pydispatch import dispatcher
+from scrapy import signals
+import smtplib
+from email.mime.text import MIMEText
 
 class Au51goSpiderSpider(scrapy.Spider):
     name = 'au51go_spider'
@@ -56,6 +60,11 @@ class Au51goSpiderSpider(scrapy.Spider):
         'https://www.51go.com.au/Category/jellycat',#Jellycat
     ]
 
+    def __init__(self):
+        """ 监听信号量 """
+        super(Au51goSpiderSpider, self).__init__()
+        dispatcher.connect(self.send_email, signals.spider_closed)
+
     def parse(self, response):
        goods_list = response.xpath("//div[@class='index_con_same']//ul/li")
 
@@ -77,3 +86,24 @@ class Au51goSpiderSpider(scrapy.Spider):
        if next_link:
            next_link = next_link[0]
            yield scrapy.Request("https://www.51go.com.au"+next_link,callback=self.parse)
+
+    def send_email(self,spider,reason):
+        mail_host = "smtp.163.com"
+        mail_user = "rockyy2019@163.com"
+        mail_pass = "vPzyOywR78"
+        sender = 'rockyy2019@163.com'
+        receivers = ['rocky-yu@qq.com']
+        stats_info = self.crawler.stats._stats  # 爬虫结束时控制台信息
+        content = "爬虫[%s]已经关闭，原因是: %s.\n以下为运行信息：\n %s \n\n " % (spider.name, reason, stats_info)
+        title = spider.name
+        message = MIMEText(content, 'plain', 'utf-8')
+        message['From'] = "{}".format(sender)
+        message['To'] = ",".join(receivers)
+        message['Subject'] = title
+        try:
+            smtpObj = smtplib.SMTP_SSL(mail_host, 465)  # 启用SSL发信, 端口一般是465
+            smtpObj.login(mail_user, mail_pass)
+            smtpObj.sendmail(sender, receivers, message.as_string())
+            print("mail has been send successfully.")
+        except smtplib.SMTPException as e:
+            print(e)

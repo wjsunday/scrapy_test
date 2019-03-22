@@ -94,4 +94,4 @@ mysql_port = 3306
 mysql_db_user = 'ppx_mall_user'
 mysql_db_pwd = 'BXWhJNy5J5TpVXJDmHa'
 mysql_db_name = 'ppx_mall_db'
-mysql_db_charset = 'utf8'
+mysql_db_charset = 'utf8mb4'

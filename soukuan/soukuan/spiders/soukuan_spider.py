@@ -58,6 +58,34 @@ class SoukuanSpiderSpider(scrapy.Spider):
         'https://www.vvic.com/gz/list/index.html?pid=2&vcid=20000081&merge=1',#男装->裤装->牛仔裤
         'https://www.vvic.com/gz/list/index.html?pid=2&vcid=20000015&merge=1',#男装->裤装->大码休闲裤
         'https://www.vvic.com/gz/list/index.html?pid=2&vcid=20000080&merge=1',#男装->裤装->大码牛仔裤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000059&strength=0&isSpFront=0',#内衣/家居->内衣->内裤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000058&strength=0&isSpFront=0',#内衣/家居->内衣->文胸
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000060&strength=0&isSpFront=0',#内衣/家居->内衣->文胸套装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000065&strength=0&isSpFront=0',#内衣/家居->内衣->抹胸
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000154&strength=0&isSpFront=0',#内衣/家居->内衣->短袜/打底袜/丝袜/美腿袜
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000083&strength=0&isSpFront=0',#内衣/家居->内衣->吊带
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000085&strength=0&isSpFront=0',#内衣/家居->内衣->背心
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000082&strength=0&isSpFront=0',#内衣/家居->内衣->T恤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000165&strength=0&isSpFront=0',#内衣/家居->内衣->睡衣/家居服套装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000064&strength=0&isSpFront=0',#内衣/家居->内衣->睡衣上装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000161&strength=0&isSpFront=0',#内衣/家居->内衣->睡裤/家居裤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000163&strength=0&isSpFront=0',#内衣/家居->内衣->睡裙
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000166&strength=0&isSpFront=0',#内衣/家居->内衣->睡袍/浴袍
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000164&strength=0&isSpFront=0',#内衣/家居->内衣->中老年睡衣/家居服套装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000063&strength=0&isSpFront=0',#内衣/家居->内衣->中老年睡衣上装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000160&strength=0&isSpFront=0',#内衣/家居->内衣->中老年睡裤/家居裤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000162&strength=0&isSpFront=0',#内衣/家居->内衣->中老年睡裙
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000170&strength=0&isSpFront=0',#内衣/家居->内衣->保暖套装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000062&strength=0&isSpFront=0',#内衣/家居->内衣->保暖上装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000169&strength=0&isSpFront=0',#内衣/家居->内衣->保暖裤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000171&strength=0&isSpFront=0',#内衣/家居->内衣->塑身连体衣
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000168&strength=0&isSpFront=0',#内衣/家居->内衣->塑身分体套装
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000061&strength=0&isSpFront=0',#内衣/家居->内衣->塑身上衣
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000167&strength=0&isSpFront=0',#内衣/家居->内衣->塑身美体裤
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000015&strength=0&isSpFront=0',#内衣/家居->内衣->塑身腰封/腰夹
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000169&strength=0&isSpFront=0',#内衣/家居->内衣->乳贴
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000170&strength=0&isSpFront=0',#内衣/家居->内衣->肩带
+        'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000171&strength=0&isSpFront=0',#内衣/家居->内衣->插片/胸垫
     ]
 
     def parse(self, response):
@@ -74,7 +102,7 @@ class SoukuanSpiderSpider(scrapy.Spider):
             for p_content in content_p:
                 content_pp = "".join(p_content.split())
                 soukuan_item['goods_price'] = content_pp
-            soukuan_item['goods_url'] = i_item.xpath(".//div[@class='item']/div[@class='pic ']/a/@href").extract_first()
+            soukuan_item['goods_url'] = i_item.xpath(".//div[@class='title']/a/@href").extract_first()
             soukuan_item['gc_name'] = urltmp
             yield soukuan_item
 

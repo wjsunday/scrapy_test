@@ -78,6 +78,34 @@ class SoukuangoodsPipeline(object):
             'https://www.vvic.com/gz/list/index.html?pid=2&vcid=20000081&merge=1':{'gc_id':'牛仔裤','gc_id_1':'男装','gc_id_2':'裤装','gc_id_3':'牛仔裤'},
             'https://www.vvic.com/gz/list/index.html?pid=2&vcid=20000015&merge=1':{'gc_id':'大码休闲裤','gc_id_1':'男装','gc_id_2':'裤装','gc_id_3':'大码休闲裤'},
             'https://www.vvic.com/gz/list/index.html?pid=2&vcid=20000080&merge=1':{'gc_id':'大码牛仔裤','gc_id_1':'男装','gc_id_2':'裤装','gc_id_3':'大码牛仔裤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000059&strength=0&isSpFront=0':{'gc_id':'内裤','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'内裤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000058&strength=0&isSpFront=0':{'gc_id':'文胸','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'文胸'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000060&strength=0&isSpFront=0':{'gc_id':'文胸套装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'文胸套装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000065&strength=0&isSpFront=0':{'gc_id':'抹胸','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'抹胸'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000154&strength=0&isSpFront=0':{'gc_id':'短袜/打底袜/丝袜/美腿袜','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'短袜/打底袜/丝袜/美腿袜'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000083&strength=0&isSpFront=0':{'gc_id':'吊带','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'吊带'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000085&strength=0&isSpFront=0':{'gc_id':'背心','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'背心'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000082&strength=0&isSpFront=0':{'gc_id':'T恤','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'T恤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000165&strength=0&isSpFront=0':{'gc_id':'睡衣/家居服套装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'睡衣/家居服套装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000064&strength=0&isSpFront=0':{'gc_id':'睡衣上装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'睡衣上装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000161&strength=0&isSpFront=0':{'gc_id':'睡裤/家居裤','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'睡裤/家居裤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000163&strength=0&isSpFront=0':{'gc_id':'睡裙','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'睡裙'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000166&strength=0&isSpFront=0':{'gc_id':'睡袍/浴袍','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'睡袍/浴袍'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000164&strength=0&isSpFront=0':{'gc_id':'中老年睡衣/家居服套装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'中老年睡衣/家居服套装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000063&strength=0&isSpFront=0':{'gc_id':'中老年睡衣上装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'中老年睡衣上装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000160&strength=0&isSpFront=0':{'gc_id':'中老年睡裤/家居裤','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'中老年睡裤/家居裤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000162&strength=0&isSpFront=0':{'gc_id':'中老年睡裙','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'中老年睡裙'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000170&strength=0&isSpFront=0':{'gc_id':'保暖套装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'保暖套装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000062&strength=0&isSpFront=0':{'gc_id':'保暖上装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'保暖上装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000169&strength=0&isSpFront=0':{'gc_id':'保暖裤','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'保暖裤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000171&strength=0&isSpFront=0':{'gc_id':'塑身连体衣','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'塑身连体衣'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000168&strength=0&isSpFront=0':{'gc_id':'塑身分体套装','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'塑身分体套装'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000061&strength=0&isSpFront=0':{'gc_id':'塑身上衣','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'塑身上衣'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=20000167&strength=0&isSpFront=0':{'gc_id':'塑身美体裤','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'塑身美体裤'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000015&strength=0&isSpFront=0':{'gc_id':'塑身腰封/腰夹','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'塑身腰封/腰夹'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000169&strength=0&isSpFront=0':{'gc_id':'乳贴','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'乳贴'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000170&strength=0&isSpFront=0':{'gc_id':'肩带','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'肩带'},
+            'https://www.vvic.com/gz/list/index.html?merge=1&isTheft=0&pid=4&vcid=40000171&strength=0&isSpFront=0':{'gc_id':'插片/胸垫','gc_id_1':'内衣/家居','gc_id_2':'内衣','gc_id_3':'插片/胸垫'},
         }
 
     def process_item(self, item, spider):
@@ -86,8 +114,11 @@ class SoukuangoodsPipeline(object):
         goods_name = item['goods_name'].replace("'","\\'")
         goods_jingle = item['goods_jingle'].replace("'","\\'")
         goods_desc = item['goods_desc'].replace("'","\\'").replace("\n","")
-        goods_marketprice = item['goods_price'] * 1.2
-        rate = round(item['goods_price']/goods_marketprice,2)*10
+        item['goods_price'] = round(item['goods_price'] * 1.25 + 2)
+        goods_marketprice = item['goods_price'] * 2
+        rate = round(item['goods_price']/goods_marketprice,1)*10
+        if int(rate) == 10:
+            rate = 0
         goods_image = 'https:'+item['goods_image']
         self.img_url = goods_image
         shop_info = item['shop_info']
@@ -126,18 +157,19 @@ class SoukuangoodsPipeline(object):
             path = root +ret[1]
             #当原始图片不存在时候直接下载
             curPath = os.path.abspath(os.path.dirname(__file__))+path
-            if not os.path.exists(curPath):
-                goods_image = self.down_img()
-            else:
-                #当存在的时候
-                if self.img_url != ret[2]:
-                    os.remove(path)
+            if self.img_url:
+                if not os.path.exists(curPath):
                     goods_image = self.down_img()
                 else:
-                    goods_image = ret[2]
+                    #当存在的时候
+                    if self.img_url != ret[2]:
+                        os.remove(path)
+                        goods_image = self.down_img()
+                    else:
+                        goods_image = ret[1]
 
             #更新
-            sqlupdatecommon = "UPDATE mall_goods_common SET goods_name='%s',goods_image='%s',goods_price='%s',goods_jingle_other='%s',goods_body='%s',mobile_body='%s',goods_marketprice='%s',goods_costprice='%s',shop_info='%s',goods_image_old='%s', goods_serial='%s' WHERE goods_commonid = '%s'" % (goods_name,goods_image,item['goods_price'],goods_jingle,goods_desc,goods_desc,goods_marketprice,item['goods_costprice'],shop_info,self.img_url,goods_serial,ret[0])
+            sqlupdatecommon = "UPDATE mall_goods_common SET goods_name='%s',goods_image='%s',goods_price='%s',goods_jingle_other='%s',goods_body='%s',mobile_body='%s',goods_marketprice='%s',goods_costprice='%s',shop_info='%s',goods_image_old='%s',goods_serial='%s',transport_id='%s',transport_title='%s',is_support_voucher='%s' WHERE goods_commonid = '%s'" % (goods_name,goods_image,item['goods_price'],goods_jingle,goods_desc,goods_desc,goods_marketprice,item['goods_costprice'],shop_info,self.img_url,goods_serial,'11','拼拼侠通用运费模板','1',ret[0])
             self.cur.execute(sqlupdatecommon)
             #更新店铺信息
             self.oper_shop(shop_name,shop_range,shop_ali,ret[0],shop_mobile,shop_address)
@@ -146,7 +178,7 @@ class SoukuangoodsPipeline(object):
             self.cur.execute(sqlgoods)
             results = self.cur.fetchall()
             for row in results:
-                sqlupdategoods = "UPDATE mall_goods SET goods_name='%s',goods_image='%s',goods_storage='%s',goods_price='%s',goods_jingle_other='%s',goods_edittime='%s',goods_tradeprice='%s',goods_promotion_price='%s',goods_marketprice='%s',goods_salenum='%s' WHERE goods_id=%s" % (goods_name,goods_image,item['goods_storage'],item['goods_price'],goods_jingle,now_time,item['goods_price'],item['goods_price'],goods_marketprice,goods_salenum,row[0])
+                sqlupdategoods = "UPDATE mall_goods SET goods_image='%s',goods_storage='%s',goods_price='%s',goods_jingle_other='%s',goods_edittime='%s',goods_tradeprice='%s',goods_promotion_price='%s',goods_marketprice='%s',goods_salenum='%s',transport_id='%s' WHERE goods_id=%s" % (goods_image,item['goods_storage'],item['goods_price'],goods_jingle,now_time,item['goods_price'],item['goods_price'],goods_marketprice,goods_salenum,'11',row[0])
                 self.cur.execute(sqlupdategoods)
                 common_key = str(ret[0])
                 goods_key = str(row[0])
@@ -201,7 +233,7 @@ class SoukuangoodsPipeline(object):
                     gc3_id = int(self.client.insert_id())
 
                 #添加属性，规格
-                ms_select = "select * from mall_spec where sp_name='%s' and class_id='%s'"
+                ms_select = "select * from mall_spec where sp_name='%s'"
                 ms_insert = 'insert into mall_spec (sp_name,sp_sort,class_id,class_name) values (%s,%s,%s,%s)'
                 msv_select = "select * from mall_spec_value where sp_value_name='%s' and sp_id='%s' and gc_id='%s'"
                 msv_insert = 'insert into mall_spec_value (sp_value_name,sp_id,gc_id,store_id,sp_value_color,sp_value_sort) values (%s,%s,%s,%s,%s,%s)'
@@ -213,13 +245,13 @@ class SoukuangoodsPipeline(object):
                 for i_item in item['goods_attr']:
                     if i_item is None:
                         continue
-                    sql_ms = ms_select % (i_item, gc3_id)
+                    sql_ms = ms_select % (i_item)
                     self.cur.execute(sql_ms)
                     ms_info = self.cur.fetchone()
                     if not ms_info is None:
                         sp_id = ms_info[0]
                     else:
-                        lisms = (i_item,0,gc3_id,self.cat_info[item['gc_name']]['gc_id_3'])
+                        lisms = (i_item,0,0,'')
                         self.cur.execute(ms_insert,lisms)
                         sp_id = int(self.client.insert_id())
                     sp_name[sp_id] = i_item
@@ -253,9 +285,9 @@ class SoukuangoodsPipeline(object):
                 sp_name_tmp = phpserialize.dumps(sp_name).decode('utf-8')
                 sp_val_tmp = phpserialize.dumps(sp_val).decode('utf-8')
                 sqlcommon = 'insert into mall_goods_common' \
-                        '(goods_name,goods_image,goods_price,goods_jingle,mobile_body,gc_id,gc_id_1,gc_id_2,gc_id_3,gc_name,store_id,store_name,spec_name,spec_value,brand_id,brand_name,goods_attr,goods_body,goods_state,goods_verify,goods_addtime,goods_selltime,goods_specname,goods_marketprice,goods_costprice,goods_discount,goods_serial,goods_storage_alarm,areaid_1,areaid_2,appoint_satedate,presell_deliverdate,goods_url,goods_jingle_other,shop_info,goods_image_old) ' \
-                        'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-                liscommon = (goods_name,goods_image,item['goods_price'],'',goods_desc,gc3_id,gc1_id,gc2_id,gc3_id,self.cat_info[item['gc_name']]['gc_id_3'],'1','拼拼侠',sp_name_tmp,sp_val_tmp,self.brand_info[item['goods_brand']],item['goods_brand'],'N;',goods_desc,'1','1',now_time,now_time,item['goods_brand'],goods_marketprice,item['goods_costprice'],'100',goods_serial,'1','1','1',now_time,now_time,item['goods_url'],goods_jingle,shop_info,self.img_url)
+                            '(goods_name,goods_image,goods_price,goods_jingle,mobile_body,gc_id,gc_id_1,gc_id_2,gc_id_3,gc_name,store_id,store_name,spec_name,spec_value,brand_id,brand_name,goods_attr,goods_body,goods_state,goods_verify,goods_addtime,goods_selltime,goods_specname,goods_marketprice,goods_costprice,goods_discount,goods_serial,goods_storage_alarm,areaid_1,areaid_2,appoint_satedate,presell_deliverdate,goods_url,goods_jingle_other,shop_info,goods_image_old,is_support_voucher,transport_id,transport_title) ' \
+                            'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+                liscommon = (goods_name,goods_image,item['goods_price'],'',goods_desc,gc3_id,gc1_id,gc2_id,gc3_id,self.cat_info[item['gc_name']]['gc_id_3'],'1','拼拼侠',sp_name_tmp,sp_val_tmp,self.brand_info[item['goods_brand']],item['goods_brand'],'N;',goods_desc,'1','1',now_time,now_time,item['goods_brand'],goods_marketprice,item['goods_costprice'],'100',goods_serial,'1','1','1',now_time,now_time,item['goods_url'],goods_jingle,shop_info,self.img_url,'1','11','拼拼侠通用运费模板')
                 self.cur.execute(sqlcommon,liscommon)
                 common_id = int(self.client.insert_id())
                 if common_id:
@@ -284,9 +316,9 @@ class SoukuangoodsPipeline(object):
                             goods_sku_name += ' ' + sp_val_list[x_i]
                         sp_value_serilize = phpserialize.dumps(sp_value).decode('utf-8')
                         #mall_goods
-                        sqlgoods = 'insert into mall_goods(goods_commonid,goods_name,goods_jingle,store_id,store_name,gc_id,gc_id_1,gc_id_2,gc_id_3,brand_id,goods_price,goods_tradeprice,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_serial,goods_storage_alarm,goods_click,goods_salenum,goods_collect,goods_spec,goods_storage,goods_image,goods_state,goods_verify,goods_addtime,goods_edittime,areaid_1,areaid_2,color_id,transport_id,goods_freight,goods_vat,goods_commend,goods_stcids,evaluation_good_star,evaluation_count,is_virtual,virtual_indate,virtual_limit,virtual_invalid_refund,is_fcode,is_appoint,is_presell,have_gift,is_own_shop,distribution_price_1,distribution_price_2,distribution_price_3,commission_percent,goods_jingle_other)' \
+                        sqlgoods = 'insert into mall_goods(goods_commonid,goods_name,goods_jingle,store_id,store_name,gc_id,gc_id_1,gc_id_2,gc_id_3,brand_id,goods_price,goods_tradeprice,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_serial,goods_storage_alarm,goods_click,goods_salenum,goods_collect,goods_spec,goods_storage,goods_image,goods_state,goods_verify,goods_addtime,goods_edittime,areaid_1,areaid_2,color_id,goods_freight,goods_vat,goods_commend,goods_stcids,evaluation_good_star,evaluation_count,is_virtual,virtual_indate,virtual_limit,virtual_invalid_refund,is_fcode,is_appoint,is_presell,have_gift,is_own_shop,distribution_price_1,distribution_price_2,distribution_price_3,commission_percent,goods_jingle_other,transport_id)' \
                                    'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-                        lisgoods = (common_id,goods_sku_name,'','1','拼拼侠',gc3_id,gc1_id,gc2_id,gc3_id,self.brand_info[item['goods_brand']],item['goods_price'],item['goods_price'],item['goods_price'],'0',goods_marketprice,'','1','1',goods_salenum,'1',sp_value_serilize,item['goods_storage'],goods_image,'1','1',now_time,now_time,'1','1','0','0','0','0','0','1','5','0','0','0','0','0','0','0','0','0','0','0','0','0','0',goods_jingle)
+                        lisgoods = (common_id,goods_sku_name,'','1','拼拼侠',gc3_id,gc1_id,gc2_id,gc3_id,self.brand_info[item['goods_brand']],item['goods_price'],item['goods_price'],item['goods_price'],'0',goods_marketprice,'','1','1',goods_salenum,'1',sp_value_serilize,item['goods_storage'],goods_image,'1','1',now_time,now_time,'1','1','0','0','0','0','1','5','0','0','0','0','0','0','0','0','0','0','0','0','0','0',goods_jingle,'11')
                         self.cur.execute(sqlgoods,lisgoods)
                     self.client.commit()
 

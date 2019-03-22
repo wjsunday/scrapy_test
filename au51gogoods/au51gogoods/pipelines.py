@@ -83,8 +83,10 @@ class Au51GogoodsPipeline(object):
         goods_jingle = item['goods_jingle'].replace("'","\\'")
         goods_desc = item['goods_desc'].replace("'","\\'").replace("//img","https://img")
         goods_weight = float(item['goods_weight']) * 1000
-        goods_marketprice = item['goods_price'] * 1.2
-        rate = round(item['goods_price']/goods_marketprice,2)*10
+        goods_marketprice = round(item['goods_price'] * 1.2,2)
+        rate = round(item['goods_price']/goods_marketprice,1)*10
+        if int(rate) == 10:
+            rate = 0
         goods_image = 'https:'+item['goods_image']
         self.img_url = goods_image
         goods_image = self.down_img()
@@ -95,10 +97,10 @@ class Au51GogoodsPipeline(object):
         ret = self.cur.fetchone()
         if not ret is None:
             #更新
-            sqlupdatecommon = "UPDATE mall_goods_common SET goods_name='%s',goods_image='%s',goods_price='%s',goods_jingle_other='%s',goods_body='%s',mobile_body='%s',goods_marketprice='%s',goods_costprice='%s' WHERE goods_commonid = '%s'" % (goods_name,goods_image,item['goods_price'],goods_jingle,goods_desc,goods_desc,goods_marketprice,item['goods_costprice'],ret[0])
+            sqlupdatecommon = "UPDATE mall_goods_common SET goods_name='%s',goods_image='%s',goods_price='%s',goods_jingle_other='%s',goods_body='%s',mobile_body='%s',goods_marketprice='%s',goods_costprice='%s',is_support_voucher='%s' WHERE goods_commonid = '%s'" % (goods_name,goods_image,item['goods_price'],goods_jingle,goods_desc,goods_desc,goods_marketprice,item['goods_costprice'],'1',ret[0])
             self.cur.execute(sqlupdatecommon)
             #if self.cur.rowcount:
-            sqlupdategoods = "UPDATE mall_goods SET goods_name='%s',goods_image='%s',goods_storage='%s',goods_price='%s',goods_jingle_other='%s',goods_edittime='%s',goods_tradeprice='%s',goods_promotion_price='%s',goods_marketprice='%s',goods_weight='%s' WHERE goods_commonid=%s" % (goods_name,goods_image,item['goods_storage'],item['goods_price'],goods_jingle,now_time,item['goods_price'],item['goods_price'],goods_marketprice,goods_weight,ret[0])
+            sqlupdategoods = "UPDATE mall_goods SET goods_name='%s',goods_image='%s',goods_storage='%s',goods_price='%s',goods_jingle_other='%s',goods_edittime='%s',goods_marketprice='%s',goods_weight='%s' WHERE goods_commonid=%s" % (goods_name,goods_image,item['goods_storage'],item['goods_price'],goods_jingle,now_time,goods_marketprice,goods_weight,ret[0])
             self.cur.execute(sqlupdategoods)
             #清除redis缓存
             sql_goods_exsits = "select goods_id from mall_goods where goods_commonid='%s'" % (ret[0])
@@ -120,16 +122,16 @@ class Au51GogoodsPipeline(object):
             #新增
             #mall_goods_common
             sqlcommon = 'insert into mall_goods_common' \
-                  '(goods_name,goods_image,goods_price,goods_jingle,mobile_body,gc_id,gc_id_1,gc_id_2,gc_id_3,gc_name,store_id,store_name,spec_name,spec_value,brand_id,brand_name,goods_attr,goods_body,goods_state,goods_verify,goods_addtime,goods_selltime,goods_specname,goods_marketprice,goods_costprice,goods_discount,goods_serial,goods_storage_alarm,areaid_1,areaid_2,appoint_satedate,presell_deliverdate,goods_url,goods_jingle_other,shop_info) ' \
-                  'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-            liscommon = (goods_name,goods_image,item['goods_price'],'',goods_desc,self.cat_info[item['gc_name']]['gc_id'],self.cat_info[item['gc_name']]['gc_id_1'],self.cat_info[item['gc_name']]['gc_id_2'],self.cat_info[item['gc_name']]['gc_id_3'],item['gc_name'],'1','拼拼侠','N;','N;',self.brand_info[item['goods_brand']],item['goods_brand'],'N;',goods_desc,'1','1',now_time,now_time,item['goods_brand'],goods_marketprice,item['goods_costprice'],'100','','1','1','1',now_time,now_time,item['goods_url'],goods_jingle,shop_info)
+                        '(goods_name,goods_image,goods_price,goods_jingle,mobile_body,gc_id,gc_id_1,gc_id_2,gc_id_3,gc_name,store_id,store_name,spec_name,spec_value,brand_id,brand_name,goods_attr,goods_body,goods_state,goods_verify,goods_addtime,goods_selltime,goods_specname,goods_marketprice,goods_costprice,goods_discount,goods_serial,goods_storage_alarm,areaid_1,areaid_2,appoint_satedate,presell_deliverdate,goods_url,goods_jingle_other,shop_info,is_support_voucher) ' \
+                        'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+            liscommon = (goods_name,goods_image,item['goods_price'],'',goods_desc,self.cat_info[item['gc_name']]['gc_id'],self.cat_info[item['gc_name']]['gc_id_1'],self.cat_info[item['gc_name']]['gc_id_2'],self.cat_info[item['gc_name']]['gc_id_3'],item['gc_name'],'4','澳货购AohooGo','N;','N;','0','','N;',goods_desc,'1','1',now_time,now_time,item['goods_brand'],goods_marketprice,item['goods_costprice'],'100','','1','1','1',now_time,now_time,item['goods_url'],goods_jingle,shop_info,'1')
             self.cur.execute(sqlcommon,liscommon)
             common_id = int(self.client.insert_id())
             if common_id:
                 #mall_goods
                 sqlgoods = 'insert into mall_goods(goods_commonid,goods_name,goods_jingle,store_id,store_name,gc_id,gc_id_1,gc_id_2,gc_id_3,brand_id,goods_price,goods_tradeprice,goods_promotion_price,goods_promotion_type,goods_marketprice,goods_serial,goods_storage_alarm,goods_click,goods_salenum,goods_collect,goods_spec,goods_storage,goods_image,goods_state,goods_verify,goods_addtime,goods_edittime,areaid_1,areaid_2,color_id,transport_id,goods_freight,goods_vat,goods_commend,goods_stcids,evaluation_good_star,evaluation_count,is_virtual,virtual_indate,virtual_limit,virtual_invalid_refund,is_fcode,is_appoint,is_presell,have_gift,is_own_shop,distribution_price_1,distribution_price_2,distribution_price_3,commission_percent,goods_jingle_other,goods_weight)' \
                            'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-                lisgoods = (common_id,goods_name,'','1','拼拼侠',self.cat_info[item['gc_name']]['gc_id'],self.cat_info[item['gc_name']]['gc_id_1'],self.cat_info[item['gc_name']]['gc_id_2'],self.cat_info[item['gc_name']]['gc_id_3'],self.brand_info[item['goods_brand']],item['goods_price'],item['goods_price'],item['goods_price'],'0',goods_marketprice,'','1','1','1','1','',item['goods_storage'],goods_image,'1','1',now_time,now_time,'1','1','0','0','0','0','0','1','5','0','0','0','0','0','0','0','0','0','0','0','0','0','0',goods_jingle,goods_weight)
+                lisgoods = (common_id,goods_name,'','4','澳货购AohooGo',self.cat_info[item['gc_name']]['gc_id'],self.cat_info[item['gc_name']]['gc_id_1'],self.cat_info[item['gc_name']]['gc_id_2'],self.cat_info[item['gc_name']]['gc_id_3'],'0',item['goods_price'],'0','0','0',goods_marketprice,'','1','1','1','1','',item['goods_storage'],goods_image,'1','1',now_time,now_time,'1','1','0','0','0','0','0','1','5','0','0','0','0','0','0','0','0','0','0','0','0','0','0',goods_jingle,goods_weight)
                 self.cur.execute(sqlgoods,lisgoods)
                 self.client.commit()
 
@@ -139,8 +141,8 @@ class Au51GogoodsPipeline(object):
         import requests
         import os
         url = self.img_url
-        root = "./image/1/"
-        path = root + '1_'+url.split("/")[-1]
+        root = "./image/4/"
+        path = root + '4_'+url.split("/")[-1]
         try:
             if not os.path.exists(root):
                 os.makedirs(root)
@@ -151,10 +153,10 @@ class Au51GogoodsPipeline(object):
                 with open(path,"wb") as f: #开始写文件，wb代表写二进制文件
                     f.write(r.content)
                 print("爬取完成")
-                return '1_'+url.split("/")[-1]
+                return '4_'+url.split("/")[-1]
             else:
                 print("文件已存在")
-                return '1_'+url.split("/")[-1]
+                return '4_'+url.split("/")[-1]
         except Exception as e:
             print("爬取失败:"+str(e))
             return self.img_url
